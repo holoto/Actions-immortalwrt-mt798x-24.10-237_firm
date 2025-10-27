@@ -13,9 +13,13 @@
 name: Update Checker
 
 on:
+  repository_dispatch:
   workflow_dispatch:
-  schedule:
-   - cron: 0 0 */5 * *
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
 jobs:
   get-repo:
